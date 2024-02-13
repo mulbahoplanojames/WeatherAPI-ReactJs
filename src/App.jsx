@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { TbTemperatureCelsius, TbWind } from "react-icons/tb";
 import { WiHumidity } from "react-icons/wi";
+import { FaRandom } from "react-icons/fa";
 
 const App = () => {
   const [data, setData] = useState({
@@ -44,7 +45,7 @@ const App = () => {
       })
       .catch((err) => {
         if (err.response.status === 404) {
-          setError("Invild cite name ");
+          setError("Invalild city name ");
         }
         console.error(err);
       });
@@ -52,7 +53,7 @@ const App = () => {
 
   return (
     <>
-      <div className="grid place-items-center lg:min-h-lvh md:min-h-screen xl:min-h-screen min-h-[120vh] px-4 bg-gray-600">
+      <div className="grid place-items-center lg:min-h-lvh md:min-h-screen xl:min-h-screen min-h-[110vh] px-4 bg-gray-600">
         <div className="card">
           <div className="flex justify-between items-center">
             <input
@@ -70,7 +71,7 @@ const App = () => {
               Search
             </button>
           </div>
-          <h1>{error}</h1>
+          <h1 className="py-2 text-red-600 md:text-xl text-base">{error}</h1>
           <div className="my-2 grid place-items-center">
             <img
               src={data.image}
@@ -86,14 +87,14 @@ const App = () => {
 
           <div className="flex justify-between items-center pb-8 md:px-4">
             <div className="flex justify-center items-center gap-4">
-              <WiHumidity className="w-12 h-11" />
+              <WiHumidity className="md:w-12 md:h-11 w-7 h-7" />
               <div>
                 <h1>{data.humidity}%</h1>
                 <h1>humidity</h1>
               </div>
             </div>
             <div className="flex justify-center items-center gap-4">
-              <TbWind className="w-9 h-9" />
+              <TbWind className="md:w-12 md:h-11 w-7 h-7" />
               <div>
                 <h1>{data.windSpeed} km/hr</h1>
                 <h1>Wind</h1>
@@ -102,12 +103,15 @@ const App = () => {
           </div>
 
           <div className="flex justify-between items-center pb-4 md:px-4 px-3">
-            <div className="">
-              <h1>{data.weatherType}</h1>
-              <h1>{data.weatherDescription}</h1>
+            <div className="flex justify-center items-center gap-4">
+              <FaRandom className="md:w-9 md:h-9 w-7 h-7" />
+              <div>
+                <h1>{data.weatherType}</h1>
+                <h1>{data.weatherDescription}</h1>
+              </div>
             </div>
             <div className="flex justify-center items-center gap-4">
-              <TbWind className="w-9 h-9" />
+              <TbWind className="md:w-12 md:h-11 w-7 h-7" />
               <div>
                 <h1>{data.pressure} Pa</h1>
                 <h1>Pressure</h1>

@@ -6,7 +6,7 @@ export default {
       width: {
         1: "500px",
         2: "430px",
-        3: "350px",
+        3: "320px",
       },
     },
   },
