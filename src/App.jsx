@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import styled from "styled-components";
 import { TbTemperatureCelsius, TbWind } from "react-icons/tb";
 import { WiHumidity } from "react-icons/wi";
 
@@ -51,13 +50,6 @@ const App = () => {
       });
   };
 
-  const DetailsWripper = styled.div({
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1.2rem 2rem",
-  });
-
   return (
     <>
       <div className="grid place-items-center lg:min-h-lvh md:min-h-screen xl:min-h-screen min-h-[120vh] px-4 bg-gray-600">
@@ -69,6 +61,7 @@ const App = () => {
               onChange={(e) => setName(e.target.value)}
               className=" input"
               value={name}
+              placeholder="Search by city name"
             />
             <button
               onClick={handleClick}
@@ -90,6 +83,7 @@ const App = () => {
             </h1>
             <h2 className="text-xl py-2">{data.name}</h2>
           </div>
+
           <div className="flex justify-between items-center pb-6 md:px-4">
             <div className="flex justify-center items-center gap-4">
               <WiHumidity className="w-12 h-11" />
@@ -106,7 +100,8 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center">
+
+          <div className="flex justify-between items-center pb-6 md:px-4">
             <div className="">
               <h1>{data.weatherType}</h1>
               <h1>{data.weatherDescription}</h1>
