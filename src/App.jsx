@@ -81,10 +81,10 @@ const App = () => {
               {data.tem.toFixed(2)}
               <TbTemperatureCelsius />
             </h1>
-            <h2 className="text-xl py-2">{data.name}</h2>
+            <h2 className="text-xl py-3">{data.name}</h2>
           </div>
 
-          <div className="flex justify-between items-center pb-6 md:px-4">
+          <div className="flex justify-between items-center pb-8 md:px-4">
             <div className="flex justify-center items-center gap-4">
               <WiHumidity className="w-12 h-11" />
               <div>
@@ -101,7 +101,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="flex justify-between items-center pb-6 md:px-4">
+          <div className="flex justify-between items-center pb-4 md:px-4 px-3">
             <div className="">
               <h1>{data.weatherType}</h1>
               <h1>{data.weatherDescription}</h1>
